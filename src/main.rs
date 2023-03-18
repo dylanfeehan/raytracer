@@ -22,6 +22,13 @@ fn main() {
 
     // pub fn new(width: u32, height: u32) -> ImageBuffer<P, Vec<P::Subpixel>>
     // 
-    let mut img_buf: ImageBuffer<Rgb<u32>, Vec<u32>> = ImageBuffer::new(VH, VW);
+    let mut img_buf: ImageBuffer<Rgb<u8>, Vec<u8>> = ImageBuffer::new(VH, VW);
+    let red_pixel: Rgb<u8> = Rgb([255, 0, 0]);
+    for x in 0..VW {
+        for y in 0..VH {
+            img_buf.put_pixel(x, y, red_pixel);
+        }
+    }
+    img_buf.save("color.png");
 
 }
